@@ -21,4 +21,8 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+Route::get('/dashboard/internship/apply', function () {
+    return view('internship.create');
+})->middleware(['auth'])->name('dashboard');
+
 require __DIR__.'/auth.php';
