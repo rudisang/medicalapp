@@ -19,7 +19,7 @@ class UserFactory extends Factory
         $password = "123456";
       //date($format = 'Y-m-d', $max = 'now')
         return [
-            'name' => $this->faker->firstNameFemale.' '.$this->faker->lastname,
+            'name' => 'Robyn'.' '.'Donavan',
             'role_id' => 1,
             'omang' => 76123456,
            // 'email' => $this->faker->unique()->safeEmail,

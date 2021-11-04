@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Factories\Sequence;
-use Illuminate\Database\Eloquent\Factories\Faker\Generator;
+//use Illuminate\Database\Eloquent\Factories\Faker\Generator;
 
 class DatabaseSeeder extends Seeder
 {
