@@ -30,7 +30,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         \App\Models\Role::factory()
-        ->count(3)
+        ->count(4)
         ->state(new Sequence(
             ['role' => 'Admin'],
             ['role' => 'Patient'],
