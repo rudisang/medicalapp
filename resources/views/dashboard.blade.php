@@ -245,7 +245,7 @@
                             <div class="card cust-card" >
                                 <div class="card-body">
                                     <img class="centered-img" width=100 src="{{asset('images/call.png')}}" alt="image">
-                                    <h4 class="bold centered-text mt-3">Secretary</h4>
+                                    <h4 class="bold centered-text mt-3">Doctor</h4>
                                     <a href="" class="btn btn-outline-info mt-3" style="width:70%;display:block;margin:auto">view</a>
                                 </div>
                             </div>
@@ -319,7 +319,110 @@
         
     </div>
      @else
-    Secretary yah monah
+     <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 bg-white border-b border-gray-200">
+                    <h1 class="bold mb-3">{{Auth::user()->name}} {{Auth::user()->surname}} <span class="btn" style="background:teal;color:white;float:right">Contact Admin</span></h1>
+                    <hr class="mb-3">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6 col-lg-4">
+                            <div class="card cust-card" >
+                                <div class="card-body">
+                                    <img class="centered-img" width=100 src="{{asset('images/money.png')}}" alt="image">
+                                    <h4 class="bold centered-text mt-3">Payments</h4>
+                                    <a href="" class="btn btn-outline-info mt-3" style="width:70%;display:block;margin:auto">view</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-6 col-lg-4">
+                            <div class="card cust-card" >
+                                <div class="card-body">
+                                    <img class="centered-img" width=100 src="{{asset('images/call.png')}}" alt="image">
+                                    <h4 class="bold centered-text mt-3">Doctor</h4>
+                                    <a href="" class="btn btn-outline-info mt-3" style="width:70%;display:block;margin:auto">call</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-6 col-lg-4">
+                            <div class="card cust-card" >
+                                <div class="card-body">
+                                    <img class="centered-img" width=100 src="{{asset('images/search.png')}}" alt="image">
+                                    <h4 class="bold centered-text mt-3">Search Record</h4>
+                                    <a href="" class="btn btn-outline-info mt-3" style="width:70%;display:block;margin:auto">lookup</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6 col-lg-4">
+                            <div class="card cust-card" >
+                                <div class="card-body">
+                                    <img class="centered-img" width=100 src="{{asset('images/patients.png')}}" alt="image">
+                                    <h4 class="bold centered-text mt-3">Patients</h4>
+                                    <a href="" class="btn btn-outline-info mt-3" style="width:70%;display:block;margin:auto">view</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-6 col-lg-4">
+                            <div class="card cust-card">
+                                <div class="card-body">
+                                    <img class="centered-img" width=100 src="{{asset('images/ns.png')}}" alt="image">
+                                    <h4 class="bold centered-text mt-3">Up Coming Appointments</h4>
+                                    <a href="" class="btn btn-outline-info mt-3" style="width:70%;display:block;margin:auto">manage</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-6 col-lg-4">
+                            <div class="card cust-card">
+                                <div class="card-body">
+                                    <img class="centered-img" width=100 src="{{asset('images/internship.png')}}" alt="image">
+                                    <h4 class="bold centered-text mt-3">Chat</h4>
+                                    <a href="" class="btn btn-outline-info mt-3" style="width:70%;display:block;margin:auto">Start Chat</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-6 col-lg-4 mt-3">
+                            <div class="card cust-card">
+                                <div class="card-body">
+                                    <img class="centered-img" width=100 src="{{asset('images/drugs.png')}}" alt="image">
+                                    <h4 class="bold centered-text mt-3">Pharmacy</h4>
+                                    <a href="" class="btn btn-outline-info mt-3" style="width:70%;display:block;margin:auto">view</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-6 col-lg-4 mt-3">
+                            <div class="card cust-card">
+                                <div class="card-body">
+                                    <img class="centered-img" width=100 src="{{asset('images/profile.png')}}" alt="image">
+                                    <h4 class="bold centered-text mt-3">My Profile</h4>
+                                    <a href="" class="btn btn-outline-info mt-3" style="width:70%;display:block;margin:auto">view</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-6 col-lg-4 mt-3">
+                            <div class="card cust-card">
+                                <div class="card-body">
+                                    <img class="centered-img" width=100 src="{{asset('images/help.png')}}" alt="image">
+                                    <h4 class="bold centered-text mt-3">Help</h4>
+                                    <a href="" class="btn btn-outline-info mt-3" style="width:70%;display:block;margin:auto">open helpdesk</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
      @endif
 
     
