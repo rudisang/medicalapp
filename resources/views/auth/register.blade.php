@@ -20,6 +20,12 @@
             </div>
 
             <div>
+                <x-label for="surname" :value="__('Surname')" />
+
+                <x-input id="surname" class="block mt-1 w-full" type="text" name="surname" :value="old('surname')" required autofocus />
+            </div>
+
+            <div>
                 <x-label for="omang" :value="__('Omang')" />
 
                 <x-input id="omang" class="block mt-1 w-full" type="number" min=0 name="omang" :value="old('omang')" required autofocus />
@@ -27,92 +33,22 @@
 
         
                                     <div class="row mb-3">
-                                        <div class="col-sm-12 mt-3">
-                                            <select name="title" class="form-select" aria-label="Select Title">
-                                                <option selected disabled>Select Title</option>
-                                                <option value="Mr">Mr</option>
-                                                <option value="Miss">Miss</option>
-                                                <option value="Mrs">Mrs</option>
-                                              </select>
-                                              @if ($errors->has('title'))
-                                                    <span class="help-block">
-                                                        <strong style="color:red">{{ $errors->first('title') }}</strong>
-                                                    </span>
-                                                @endif
-                                        </div>
-                                    </div>
-        
-                                    <div class="row mb-4">
-                                       
+
         
                                         <div class="col-sm-12">
                                             <div class="form-group">
-                                                <label  class="form-label">Date of Birth</label>
-                                                <input type="date" name="date_of_birth" class="form-control" placeholder="">
+                                                <label  class="form-label">Address</label>
+                                                <input type="text" name="address" value="" class="form-control" placeholder="">
                                               </div>
-                                              @if ($errors->has('date_of_birth'))
-                                                <span class="help-block">
-                                                    <strong style="color:red">{{ $errors->first('date_of_birth') }}</strong>
-                                                </span>
-                                            @endif
-                                        </div>
-                                    </div>
-        
-                                    <div class="row mb-3">
-                                        <div class="col-sm-12">
-                                            <select name="gender" class="form-select" aria-label="Select Gender">
-                                                <option selected disabled>Select Gender</option>
-                                                <option value="Male">Male</option>
-                                                <option value="Female">Female</option>
-                                                
-                                              </select>
-                                              @if ($errors->has('gender'))
+                                              @if ($errors->has('address'))
                                                     <span class="help-block">
-                                                        <strong style="color:red">{{ $errors->first('gender') }}</strong>
-                                                    </span>
-                                                @endif
-                                        </div>
-        
-                                        <div class="col-sm-12 mt-3 mb-3">
-                                            <select name="marital_status" class="form-select" aria-label="Select Gender">
-                                                <option selected disabled>Select Marital Status</option>
-                                                <option value="Single">Single</option>
-                                                <option value="Married">Married</option>
-                                                <option value="Divorced">Divorced</option>
-                                                <option value="Widowed">Widowed</option>
-                                              </select>
-                                              @if ($errors->has('marital_status'))
-                                                    <span class="help-block">
-                                                        <strong style="color:red">{{ $errors->first('marital_status') }}</strong>
-                                                    </span>
-                                                @endif
-                                        </div>
-        
-                                        <div class="col-sm-12">
-                                            <div class="form-group">
-                                                <label  class="form-label">Correspondance Address</label>
-                                                <input type="text" name="co_address" value="" class="form-control" placeholder="">
-                                              </div>
-                                              @if ($errors->has('co_address'))
-                                                    <span class="help-block">
-                                                        <strong style="color:red">{{ $errors->first('co_address') }}</strong>
+                                                        <strong style="color:red">{{ $errors->first('address') }}</strong>
                                                     </span>
                                                 @endif
                                         </div>
                                     </div>
 
                                     <div class="row mb-4">
-                                        <div class="col-sm-12">
-                                            <div class="form-group">
-                                                <label  class="form-label">Tel #</label>
-                                                <input type="number" name="tel_no"  class="form-control" placeholder="">
-                                              </div>
-                                              @if ($errors->has('tel_no'))
-                                                <span class="help-block">
-                                                    <strong style="color:red">{{ $errors->first('tel_no') }}</strong>
-                                                </span>
-                                            @endif
-                                        </div>
         
                                         <div class="col-sm-12">
                                             <div class="form-group">
@@ -132,19 +68,29 @@
         
                                         <div class="col-sm-12">
                                             <div class="form-group">
-                                                <label  class="form-label">Fax</label>
-                                                <input type="text" name="fax" value="" class="form-control" placeholder="">
+                                                <label  class="form-label">Occupation</label>
+                                                <input type="text" name="occupation" value="" class="form-control" placeholder="">
                                               </div>
-                                              @if ($errors->has('fax'))
+                                              @if ($errors->has('occupation'))
                                                 <span class="help-block">
-                                                    <strong style="color:red">{{ $errors->first('fax') }}</strong>
+                                                    <strong style="color:red">{{ $errors->first('occupation') }}</strong>
                                                 </span>
                                             @endif
                                         </div>
                                     </div>
      
            
-
+                                    <div>
+                                        <x-label for="medical_aid" :value="__('Medical Aid Company')" />
+                        
+                                        <x-input id="medical_aid" class="block mt-1 w-full" type="text" name="medical_aid" :value="old('medical_aid')" required autofocus />
+                                    </div>
+                        
+                                    <div>
+                                        <x-label for="medical_aid_no" :value="__('Medical Aid No')" />
+                        
+                                        <x-input id="medical_aid_no" class="block mt-1 w-full" type="text" name="medical_aid_no" :value="old('medical_aid_no')" required autofocus />
+                                    </div>
             <!-- Email Address -->
             <div class="mt-4">
                 <x-label for="email" :value="__('Email')" />

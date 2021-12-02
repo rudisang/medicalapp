@@ -19,11 +19,12 @@ class UserFactory extends Factory
         $password = "123456";
       //date($format = 'Y-m-d', $max = 'now')
         return [
-            'name' => 'Robyn'.' '.'Donavan',
+            'name' => 'Thabo',
+            'surname' => 'Admin',
             'role_id' => 1,
             'omang' => 76123456,
            // 'email' => $this->faker->unique()->safeEmail,
-           'email' => 'admin@govapi.com',
+           'email' => 'admin@medicalapp.com',
             'email_verified_at' => now(),
             'password' => Hash::make($password), // password
             'remember_token' => Str::random(10),

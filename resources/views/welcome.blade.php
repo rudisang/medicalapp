@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Gov APi</title>
+        <title>Medical App</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -40,7 +40,7 @@
                 
                 <img style="display:block;margin:auto" src="{{asset('images/gov-logo.png')}}" alt="">
 
-                <h1 class="bold">One Gov Internship Portal</h1>
+                <h1 class="bold" style="text-align: center">Medical System</h1>
             </div>
         </div>
     </body>

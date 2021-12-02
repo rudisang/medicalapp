@@ -37,14 +37,12 @@ class RegisteredUserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required|string|max:255',
-            'date_of_birth' => 'required|date|before:today',
-            'gender' => 'required|string|max:255',
-            'marital_status' => 'required|string|max:255',
-            'co_address' => 'required|string|max:255',
-            'tel_no' => 'required|string|max:255',
+            'medical_aid' => 'required|string|max:255',
+            'medical_aid_no' => 'required|string|max:255',
+            'occupation' => 'required|string|max:255',
+            'address' => 'required|string|max:255',
             'mobile_no' => 'required|string|max:255',
-            'fax' => 'required|string|max:255',
+            'surname' => 'required|string|max:255',
             'name' => ['required', 'string', 'max:255'],
             'omang' => ['required'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -52,14 +50,12 @@ class RegisteredUserController extends Controller
         ]);
 
         $user = User::create([
-            'title' => $request->title,
-            'date_of_birth' => $request->date_of_birth,
-            'gender' => $request->gender,
-            'marital_status' => $request->marital_status,
-            'co_address' => $request->co_address,
-            'tel_no' => $request->tel_no,
+            'medical_aid' => $request->medical_aid,
+            'medical_aid_no' => $request->medical_aid_no,
+            'occupation' => $request->occupation,
+            'address' => $request->address,
             'mobile_no' => $request->mobile_no,
-            'fax' => $request->fax,
+            'surname' => $request->surname,
             'name' => $request->name,
             'omang' => $request->omang,
             'email' => $request->email,

@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            {{ __('Dashboard') }} - @if(Auth::user()->role_id == 1) Admin Portal @elseif(Auth::user()->role_id == 2)Patient Portal @elseif(Auth::user()->role_id == 3) Doctor Portal @elseif(Auth::user()->role_id == 4)Secretary Portal @endif
         </h2>
     </x-slot>
 
@@ -10,44 +10,130 @@
       </section>
 
      @if (Auth::user()->role_id == 1)
+     <div class="container max-w-7xl mx-auto sm:px-6 lg:px-8 mt-5">
+        <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 style="text-align:center;color:grey;font-weight:900;font-size:40px">{{$users->count()}}</h2>
+                        <p style="text-align:center;color:grey;font-weight:600;font-size:20px">Curent Users</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 style="text-align:center;color:grey;font-weight:900;font-size:40px">0</h2>
+                        <p style="text-align:center;color:grey;font-weight:600;font-size:20px">Active Users</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 style="text-align:center;color:grey;font-weight:900;font-size:40px">0</h2>
+                        <p style="text-align:center;color:grey;font-weight:600;font-size:20px">Messages</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </div>
+
+
      <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-5">
         <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
             <div class="p-6 bg-white border-b border-gray-200">
-                <h3 class="bold">Internship Applications</h3>
+                <h3 class="bold">System Users <span><a style="background:teal;color:white;float:right" href="/dashboard/add-user" class="btn">Add User</a></span></h3> 
                 <div class="card cust-card mt-3 mb-3">
                     <div class="card-body">
                         <table class="table">
                             <thead class="thead-dark">
                               <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Applicant</th>
-                                <th scope="col">Field Applied</th>
-                                <th scope="col">Applied On</th>
-                                <th scope="col">Application Status</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">omang</th>
+                                <th scope="col">Role</th>
+                                <th scope="col">Registration Date</th>
                                 <th scope="col">Action</th>
                               </tr>
                             </thead>
                             <tbody>
                               
-                               @foreach ($applications as $app)
-                               <tr>
-                                <th scope="row">{{$app->id}}</th>
-                                <th scope="row">{{$app->user->name}}</th>
-                                <td>{{$app->field_of_interest}}</td>
-                                <td>{{$app->created_at->diffForHumans()}}</td>
-                                <td>@if ($app->application_status == 0)
-                                    <a class="btn btn-warning">Pending</a>
-                                    @elseif($app->application_status == 1)
-                                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#ex">
-                                        Approved
-                                      </button>
-                                      @else
-                                      <a class="btn btn-danger">Rejected</a>
-                                @endif</td>
-                                
-                                <td><a href="" class="btn btn-info">Manage</a></td>
-                                <td></td>
-                              </tr>
+                               @foreach ($users as $app)
+                                @if ($app->role_id == 1)
+                                  @else
+                                  <tr>
+                                    <th scope="row">{{$app->id}}</th>
+                                    <th scope="row">{{$app->name}} {{$app->surname}}</th>
+                                    <td>{{$app->omang}}</td>
+                                    <td>@if ($app->role_id == 2)
+                                        Patient
+                                        @elseif($app->role_id == 3)
+                                           Doctor
+                                          @elseif($app->role_id == 4)
+                                          Secretary
+                                    @endif</td>
+                                    <td>{{$app->created_at->diffForHumans()}}</td>
+                                    <td><a  class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modal{{$app->id}}">View</a></td>
+                                    <td></td>
+                                  </tr>
+                                @endif
+
+                                <div class="modal fade" id="modal{{$app->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg" role="document">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <h5 class="modal-title" id="exampleModalLabel">{{$app->name}} {{$app->surname}}</h5>
+                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                          </button>
+                                        </div>
+                                        <div class="modal-body">
+                                         @if($app->role_id == 2)
+                                         <ul>
+                                            <li style="color:grey"><span style="font-weight:900;font-size:20px">Medical Aid Number: </span>{{$app->medical_aid_no}}</li>
+                                            <li style="color:grey"><span style="font-weight:900;font-size:20px">Medical Aid: </span>{{$app->medical_aid}}</li>
+                                            <li style="color:grey"><span style="font-weight:900;font-size:20px">Occupation: </span>{{$app->occupation}}</li>
+                                            <li style="color:grey"><span style="font-weight:900;font-size:20px">Address: </span>{{$app->address}}</li>
+                                            <li style="color:grey"><span style="font-weight:900;font-size:20px">Phone #: </span>{{$app->mobile_no}}</li>
+                                            <li style="color:grey"><span style="font-weight:900;font-size:20px">Omang #: </span>{{$app->omang}}</li>
+                                            <li style="color:grey"><span style="font-weight:900;font-size:20px">Role: </span>@if ($app->role_id == 2)
+                                                Patient
+                                                @elseif($app->role_id == 3)
+                                                   Doctor
+                                                  @elseif($app->role_id == 4)
+                                                  Secretary
+                                            @endif</li>
+                                            <li style="color:grey"><span style="font-weight:900;font-size:20px">Email: </span>{{$app->email}}</li>
+                                            
+                                         </ul>
+                                         @else
+                                         <ul>
+                                            <li style="color:grey"><span style="font-weight:900;font-size:20px">Medical Aid Number: </span>{{$app->medical_aid_no}}</li>
+                                            <li style="color:grey"><span style="font-weight:900;font-size:20px">Medical Aid: </span>{{$app->medical_aid}}</li>
+                                            <li style="color:grey"><span style="font-weight:900;font-size:20px">Occupation: </span>{{$app->occupation}}</li>
+                                            <li style="color:grey"><span style="font-weight:900;font-size:20px">Address: </span>{{$app->address}}</li>
+                                            <li style="color:grey"><span style="font-weight:900;font-size:20px">Phone #: </span>{{$app->mobile_no}}</li>
+                                            <li style="color:grey"><span style="font-weight:900;font-size:20px">Omang #: </span>{{$app->omang}}</li>
+                                            <li style="color:grey"><span style="font-weight:900;font-size:20px">Role: </span>@if ($app->role_id == 2)
+                                                Patient
+                                                @elseif($app->role_id == 3)
+                                                   Doctor
+                                                  @elseif($app->role_id == 4)
+                                                  Secretary
+                                            @endif</li>
+                                            <li style="color:grey"><span style="font-weight:900;font-size:20px">Email: </span>{{$app->email}}</li>
+                                            
+                                         </ul>
+                                         @endif
+                                        </div>
+                                        <div class="modal-footer">
+                                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                          <button type="button" class="btn btn-danger">delete user</button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
                                @endforeach
                                
                             </tbody>
