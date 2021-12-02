@@ -151,15 +151,15 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
-                    <h3 class="bold mb-3">APPLY</h3>
+                    <h1 class="bold mb-3">{{Auth::user()->name}} {{Auth::user()->surname}}</h1>
                     <hr class="mb-3">
                     <div class="row">
                         <div class="col-sm-12 col-md-6 col-lg-4">
                             <div class="card cust-card" >
                                 <div class="card-body">
                                     <img class="centered-img" width=100 src="{{asset('images/gov.png')}}" alt="image">
-                                    <h4 class="bold centered-text mt-3">GVS</h4>
-                                    <a href="" class="btn btn-outline-info mt-3" style="width:70%;display:block;margin:auto">apply</a>
+                                    <h4 class="bold centered-text mt-3">My Medical Records</h4>
+                                    <a href="" class="btn btn-outline-info mt-3" style="width:70%;display:block;margin:auto">view</a>
                                 </div>
                             </div>
                         </div>
@@ -168,8 +168,8 @@
                             <div class="card cust-card">
                                 <div class="card-body">
                                     <img class="centered-img" width=100 src="{{asset('images/ns.png')}}" alt="image">
-                                    <h4 class="bold centered-text mt-3">BNSP</h4>
-                                    <a href="" class="btn btn-outline-info mt-3" style="width:70%;display:block;margin:auto">apply</a>
+                                    <h4 class="bold centered-text mt-3">Appointments</h4>
+                                    <a href="" class="btn btn-outline-info mt-3" style="width:70%;display:block;margin:auto">view</a>
                                 </div>
                             </div>
                         </div>
@@ -178,8 +178,38 @@
                             <div class="card cust-card">
                                 <div class="card-body">
                                     <img class="centered-img" width=100 src="{{asset('images/internship.png')}}" alt="image">
-                                    <h4 class="bold centered-text mt-3">Internship</h4>
-                                    <a href="/dashboard/internship/apply" class="btn btn-outline-info mt-3" style="width:70%;display:block;margin:auto">apply</a>
+                                    <h4 class="bold centered-text mt-3">Chat</h4>
+                                    <a href="" class="btn btn-outline-info mt-3" style="width:70%;display:block;margin:auto">Start Chat</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-6 col-lg-4 mt-3">
+                            <div class="card cust-card">
+                                <div class="card-body">
+                                    <img class="centered-img" width=100 src="{{asset('images/drugs.png')}}" alt="image">
+                                    <h4 class="bold centered-text mt-3">Pharmacy</h4>
+                                    <a href="" class="btn btn-outline-info mt-3" style="width:70%;display:block;margin:auto">view</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-6 col-lg-4 mt-3">
+                            <div class="card cust-card">
+                                <div class="card-body">
+                                    <img class="centered-img" width=100 src="{{asset('images/profile.png')}}" alt="image">
+                                    <h4 class="bold centered-text mt-3">My Profile</h4>
+                                    <a href="" class="btn btn-outline-info mt-3" style="width:70%;display:block;margin:auto">view</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-6 col-lg-4 mt-3">
+                            <div class="card cust-card">
+                                <div class="card-body">
+                                    <img class="centered-img" width=100 src="{{asset('images/help.png')}}" alt="image">
+                                    <h4 class="bold centered-text mt-3">Help</h4>
+                                    <a href="" class="btn btn-outline-info mt-3" style="width:70%;display:block;margin:auto">open helpdesk</a>
                                 </div>
                             </div>
                         </div>
@@ -188,51 +218,10 @@
             </div>
         </div>
 
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 mt-5">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                    <h3 class="bold">My Applications</h3>
-                    <div class="card cust-card mt-3 mb-3">
-                        <div class="card-body">
-                            <table class="table">
-                                <thead class="thead-dark">
-                                  <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Field Applied</th>
-                                    <th scope="col">Applied On</th>
-                                    <th scope="col">Application Status</th>
-                                    <th scope="col">Action</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  
-                                   
-                                    <tr>
-                                      <th scope="row">{{Auth::user()->internshipapplication->id}}</th>
-                                      <td>{{Auth::user()->internshipapplication->field_of_interest}}</td>
-                                      <td>{{Auth::user()->internshipapplication->created_at->diffForHumans()}}</td>
-                                      <td>@if (Auth::user()->internshipapplication->application_status == 0)
-                                          <a class="btn btn-warning">Under Review</a>
-                                          @elseif(Auth::user()->internshipapplication->application_status == 1)
-                                          <button type="button" class="btn btn-success" data-toggle="modal" data-target="#ex">
-                                              Approved
-                                            </button>
-                                            @else
-                                            <a class="btn btn-danger">Rejected</a>
-                                      @endif</td>
-                                      
-                                      <td><a href="" class="btn btn-info">view my application</a></td>
-                                      <td></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                   
-                </div>
-            </div>
-        </div>
+        
     </div>
+
+    
      @else
 
      @endif

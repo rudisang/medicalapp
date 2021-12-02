@@ -54,7 +54,5 @@ class User extends Authenticatable
         return $this->belongsTo('App\Models\Role');
     }
 
-    public function internshipapplication(){
-        return $this->hasOne('App\Models\InternApplicationForm');
-    }
+
 }

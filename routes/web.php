@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Models\InternApplicationForm;
+
 use App\Models\User;
-use App\Http\Controllers\InternApplicationFormController;
+
 use Illuminate\Support\Facades\Hash;
 
 /*
@@ -22,13 +22,13 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    $applications = InternApplicationForm::all();
+
     $users = User::all();
-    return view('dashboard')->with('applications', $applications)->with('users', $users);
+    return view('dashboard')->with('users', $users);
 })->middleware(['auth'])->name('dashboard');
 
 Route::get('/dashboard/add-user', function () {
-    $applications = InternApplicationForm::all();
+    
     $users = User::all();
     return view('adduser')->with('users', $users);
 })->middleware(['auth']);
@@ -69,6 +69,6 @@ Route::get('/dashboard/internship/apply', function () {
     return view('internship.create');
 })->middleware(['auth'])->name('dashboard');
 
-Route::post('/dashboard/internship/apply', [InternApplicationFormController::class, 'storeInternApplication']);
+
 
 require __DIR__.'/auth.php';
